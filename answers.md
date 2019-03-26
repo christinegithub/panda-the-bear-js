@@ -93,3 +93,61 @@ var ul = document.querySelector("ul");
 var li = document.querySelectorAll(".bio-info-item");
 
 ul.remove();
+
+
+
+
+<!-- Part TWO -->
+
+
+<!-- Panda the Bear is lying about their skills! Take the "time travel" skill off the page to satisfy your personal sense of justice. Use your googling and docs-skimming skillz to find a function that will allow you to remove elements from the DOM. (hint: there are multiple ways of doing this, but parentNode might be useful when it comes to selecting the right element) -->
+
+var timeTravel = document.querySelector("div#time-travel.bar-filled.highlight");
+
+timeTravel.remove();
+
+<!-- That drawing of Pikachu is really cute. Let’s duplicate it using cloneNode() and insert it at the bottom of the .portfolio-container using insertAdjacentHTML() or appendChild(). -->
+
+var div = document.querySelector("#right-image");
+
+var pikachu = div.getElementsByTagName("img")[0];
+
+var pikachu1 = pikachu.cloneNode(true);
+
+var container = document.querySelector(".portfolio-container");
+
+container.appendChild(pikachu1);
+
+<!-- Wow, that was so satisfying I think we should do it 10 more times. Use a for loop to help you do this. -->
+
+for (var i = 0; i < 10; i++) {
+    pikachu1 = pikachu.cloneNode(true);
+    container.appendChild(pikachu1);
+}
+
+<!-- Let’s add a message about when the page was last updated. We'll do this by appending a new <li> element to the <ul> in the sidebar (you might need to refresh the page to bring back the list items that we emptied out earlier). -->
+
+const listItem = document.createElement('li');
+
+const leftSpan = document.createElement('span');
+
+var lastUpdated = document.createTextNode('Page last updated on');
+
+leftSpan.appendChild(lastUpdated);
+
+listItem.appendChild(leftSpan);
+
+var ul = document.queryselector("ul");
+
+ul.appendChild(listItem);
+
+
+const rightSpan = document.createElement('span');
+
+var d = new Date();
+
+var dateUpdated = document.createTextNode(d);
+
+rightSpan.appendChild(dateUpdated);
+
+listItem.appendChild(rightSpan);
